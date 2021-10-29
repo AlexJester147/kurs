@@ -20,12 +20,12 @@
 
       <div class="rows-wrap">
     <label for="rows-input">Rows</label>
-    <input type="number" name="rows-input" class="rows-input" min="1" step="1" value="1">
+    <input type="number" name="rows-input" class="rows-input" min="1" max="10" step="1" value="1">
   </div>
 
   <div class="cols-wrap">
     <label for="cols-input">Cols</label>
-    <input type="number" name="cols-input" class="cols-input" min="1" step="1" value="1">
+    <input type="number" name="cols-input" class="cols-input" min="2" max="10" step="1" value="2">
   </div>
 
   </div>
@@ -34,7 +34,19 @@
 </div>
 
   <div class="form-part">
-    <button id="previous-button">Previous</button>
+    <div class="first-form">
+      <div class="form-caption"></div>
+    </div>
+    
+    <div class="second-form">
+      <div class="form-caption"></div>
+    </div>
+
+    <div class="second-buttons__wrap">
+    <button id="back-button">Back</button>
+    <button id="second-next-button">Next</button>
+  </div>
+  
   </div>
 </div>
 
