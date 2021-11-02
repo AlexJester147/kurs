@@ -35,7 +35,7 @@ justify-content: space-evenly;
 transition: all .5s ease-in-out;
 }
 
-.form-part{
+.form-part, .result-part{
   width: 700px;
   height: 500px;
   transition: all .5s ease-in-out;
@@ -50,7 +50,7 @@ transition: all .5s ease-in-out;
     -webkit-appearance: none;
   }
 
-.data-part, .form-part{
+.data-part, .form-part, .result-part{
   flex-shrink: 0;
   color: green;
   font-weight: 700;
@@ -93,7 +93,7 @@ transition: all .5s ease-in-out;
 }
 
 
-#next-button, #back-button, #second-next-button{
+#next-button, #back-button, #second-next-button, #result-back-button{
   background-color: green;
   outline: 0;
   border: 2px solid green;
@@ -108,7 +108,7 @@ box-sizing: border-box;
 transition: all .5s ease-in-out;
 }
 
-#next-button:hover, #back-button:hover, #second-next-button:hover{
+#next-button:hover, #back-button:hover, #second-next-button:hover, #result-back-button:hover{
   background-color: white;
   border: 2px solid green;
   transition: all .5s ease-in-out;

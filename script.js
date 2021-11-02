@@ -1,8 +1,11 @@
-const nextButton = document.querySelector('#next-button');
-const backButton = document.querySelector('#back-button');
+const dataNextButton = document.querySelector('.data-part #next-button');
+const formNextButton = document.querySelector('#second-next-button');
+const formBackButton = document.querySelector('.form-part #back-button');
+const resultBackButton = document.querySelector('#result-back-button');
 const mainBlock = document.querySelector('.main-block');
 const dataPart = document.querySelector('.data-part');
 const formPart = document.querySelector('.form-part');
+const resultPart = document.querySelector('.result-part');
 const firstForm = document.querySelector('.first-form');
 const secondForm = document.querySelector('.second-form');
 
@@ -24,17 +27,20 @@ let selectMax = `<select>
 </select>`;
 
 let col = `<td><input type="number" class="col" min="0" step="1" value="0"></td>`;
-let row = `<tr><input type="number" class="row" min="0" step="1" value="0"></tr>`;
+let row = `<tr><input type="number" class="col" min="0" step="1" value="0"></tr>`;
+
+// mainBlock.style.width = formPart.offsetWidth + 'px';
 
 
-nextButton.addEventListener('click', () => {
+dataNextButton.addEventListener('click', () => {
 
   firstForm.innerHTML = '';
   secondForm.innerHTML = '';
 
-  backButton.parentNode.style.marginRight = 0;
-  nextButton.parentNode.style.marginLeft = '-' + (nextButton.parentElement.offsetWidth + 50) + 'px';
-  mainBlock.style.width = formPart.offsetWidth + 'px';
+  resultBackButton.parentNode.style.marginRight = 0;
+  dataNextButton.parentNode.style.marginLeft = '-' + (dataNextButton.parentElement.offsetWidth + 50) + 'px';
+  // mainBlock.style.width = formPart.offsetWidth + 'px';
+  formPart.style.marginLeft = 0;
 
   let caption;
 
@@ -89,10 +95,19 @@ nextButton.addEventListener('click', () => {
 
 });
 
+formNextButton.addEventListener('click', () => {
+  formPart.style.marginRight = 0;
+  formPart.style.marginLeft = '-' + (formPart.offsetWidth +50) + 'px';
+  resultPart.style.marginRight = (formPart.offsetWidth ) + 'px';
+})
 
-backButton.addEventListener('click', () => {
-  nextButton.parentNode.style.marginLeft = 0;
-  mainBlock.style.width = dataPart.offsetWidth + 'px';
-  backButton.parentNode.parentNode.style.marginRight = '-' + (backButton.parentElement.parentNode.offsetWidth - 50) + 'px';
+formBackButton.addEventListener('click', () => {
+  dataPart.style.marginLeft = 0;
+  formPart.style.marginRight = 0;
+  formPart.style.marginLeft =(formPart.offsetWidth +50) + 'px';
 });
 
+resultBackButton.addEventListener('click', () => {
+  formPart.style.marginLeft = 0;
+  formPart.style.marginRight = (formPart.offsetWidth +50) + 'px';
+})
