@@ -14,6 +14,9 @@ const colsInput = document.querySelector('.cols-input');
 
 const formCaption = document.querySelectorAll('.form-caption');
 
+const firstResult = document.querySelector('.first-result');
+const secondResult = document.querySelector('.second-result');
+
 
 let select = `<select>
 <option>≥</option>
@@ -45,6 +48,7 @@ dataNextButton.addEventListener('click', () => {
   let caption;
 
   //подпись формы
+
   for (let i = 0; i < colsInput.value; i++) {
     caption = document.createElement('div');
     caption.classList.add('form-caption');
@@ -53,9 +57,11 @@ dataNextButton.addEventListener('click', () => {
   }
 
 //первая таблица
+
   for (let i = 0; i < rowsInput.value; i++) {
     let tr = document.createElement('tr');
     tr.innerHTML = col;
+
     
     for (let i = 0; i < colsInput.value-1; i++) {
       let td = document.createElement('td');
@@ -96,9 +102,45 @@ dataNextButton.addEventListener('click', () => {
 });
 
 formNextButton.addEventListener('click', () => {
+  firstResult.textContent = '';
+  secondResult.textContent = '';
   formPart.style.marginRight = 0;
   formPart.style.marginLeft = '-' + (formPart.offsetWidth +50) + 'px';
   resultPart.style.marginRight = (formPart.offsetWidth ) + 'px';
+
+
+  let arr1 = []
+  let arr2 = []
+  let trFirstCollection = document.querySelectorAll('.first-form tr');
+  let trSecondCollection = document.querySelectorAll('.second-form tr');
+
+  trFirstCollection.forEach((item, index)=> {
+    arr1.push(item.querySelectorAll('input, select'));
+  })
+
+  trSecondCollection.forEach((item, index)=> {
+    arr2.push(item.querySelectorAll('input, select'));
+  })
+
+  let firstRes, secondRes;
+
+  arr1.forEach(item => {
+    firstRes = new Array();
+    item.forEach((part) => {
+      firstRes.push(part.value)
+    })
+    firstResult.innerHTML += `</br>${firstRes}</br>`;
+  })
+
+  arr2.forEach(item => {
+    secondRes = new Array();
+    item.forEach((part) => {
+      secondRes.push(part.value)
+    })
+
+    secondResult.innerHTML += `</br>${secondRes}</br>`;
+  })
+
 })
 
 formBackButton.addEventListener('click', () => {
